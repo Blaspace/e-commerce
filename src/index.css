@@ -7,6 +7,70 @@
 body {
   background-color: rgb(244, 246, 252);
 }
+.paycon {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.493);
+  z-index: 1;
+}
+.paycon form {
+  background-color: #fcf6ef;
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+}
+.paycon h2 {
+  position: absolute;
+  color: red;
+  font-size: 30px;
+  right: 15px;
+  top: 10px;
+  cursor: pointer;
+}
+.paycon div {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-size: 30px;
+  border-radius: 20px;
+}
+.load {
+  animation: load 1s infinite;
+}
+@keyframes load {
+  form {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.paycon button {
+  margin-top: 10px;
+  width: 130px;
+  height: 30px;
+  color: white;
+  background-color: rgb(255, 145, 0);
+  border: 1px solid rgb(255, 145, 0);
+  cursor: pointer;
+  transition: background-color 500ms;
+}
+.paycon button:hover {
+  background-color: white;
+  color: rgb(255, 145, 0);
+}
 .nav {
   width: 100vw;
   position: fixed;
@@ -211,6 +275,12 @@ body {
   width: 60%;
   color: white;
   font-weight: 600;
+  cursor: pointer;
+  transition: background-color 500ms;
+}
+.second-con button:hover {
+  background-color: white;
+  color: black;
 }
 
 /*third section*/
@@ -282,6 +352,9 @@ body {
   color: rgb(255, 145, 0);
 }
 @media (min-width: 780px) {
+  .paycon form {
+    width: 400px;
+  }
   .nav ul {
     display: flex;
   }

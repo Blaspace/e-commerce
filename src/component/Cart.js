@@ -1,11 +1,15 @@
-import React, { useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { FaPlusSquare, FaMinusSquare, FaTrashAlt } from "react-icons/fa";
+import CartContext from "../context/CartContext";
+import StripeConfig from "./StripeConfig";
 
 function Cart({ prod, cart, setProd }) {
+  const { amount, setAmount } = useContext(CartContext);
+  const [pay, setPay] = useState(false);
   const cartRef = useRef();
+
   useEffect(() => {
     if (cart) {
-      console.log(window.innerWidth);
       if (window.innerWidth >= 780) {
         cartRef.current.style.width = "40%";
       } else {
@@ -37,12 +41,21 @@ function Cart({ prod, cart, setProd }) {
   };
   const handleRemove = (e) => {
     const i = prod.filter((v) => v.img !== e);
-    console.log(i);
     setProd(i);
     localStorage.setItem("cart", JSON.stringify(i));
   };
+  useEffect(() => {
+    setAmount(0);
+    let j = 0;
+    for (let i = 0; i < prod.length; i++) {
+      const x = prod[i].price * prod[i].num;
+      j += x;
+    }
+    setAmount(j);
+  }, [prod]);
   return (
     <div className="cart" ref={cartRef}>
+      {pay && <StripeConfig setPay={setPay} />}
       <br />
       <h2>Your Cart</h2>
       <br />
@@ -89,7 +102,13 @@ function Cart({ prod, cart, setProd }) {
           <h3 style={{ borderBottom: "1px solid grey" }}>Your cart is empty</h3>
         )}
         <br />
-        {prod.length && <button>Check Out</button>}
+        {prod.length && (
+          <div style={{ justifyContent: "spaceAround" }}>
+            {" "}
+            <button onClick={() => setPay(true)}>Check Out</button>{" "}
+            <h2>Total: ${amount}</h2>
+          </div>
+        )}
         <br />
         <br />
         <br />

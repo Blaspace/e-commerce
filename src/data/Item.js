@@ -315,7 +315,7 @@ export const products = [
     name: "Fancy Shoe",
     img: require("../public/shoe10.jpg"),
     cat: "Shoe",
-    price: 99.9,
+    price: 99,
   },
   {
     name: "Fancy Shoe",
