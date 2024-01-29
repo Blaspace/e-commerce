@@ -8,7 +8,7 @@ function Home() {
   return (
     <div>
       <Nav />
-      <Header text={"products"} />
+      <Header text={"Products"} />
       <SecondSection />
       <FeaturedProducts />
     </div>

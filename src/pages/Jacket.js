@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Nav from "../component/Nav";
-import Header from "../component/Header";
 import AllProduct from "../component/AllProduct";
 import { products } from "../data/Item";
+import Tittle from "../component/Tittle";
 
 function Jacket() {
   const [items, setItems] = useState([]);
@@ -16,7 +16,7 @@ function Jacket() {
   return (
     <div>
       <Nav />
-      <Header text={"Jackets"} />
+      <Tittle text={"All Jacket"} />
       <div className="third">
         <div className="third-con">
           <AllProduct items={items} />

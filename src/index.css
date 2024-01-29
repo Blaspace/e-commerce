@@ -185,6 +185,31 @@ body {
   background-color: rgb(255, 145, 0);
   color: white;
 }
+.class {
+  display: flex;
+  justify-content: center;
+  background-color: #fcf6ef;
+}
+.class-con {
+  margin-top: 100px;
+  width: 100%;
+  max-width: 1200px;
+}
+.class-con h1 {
+  margin-left: 10px;
+  font-size: 2rem;
+  -webkit-text-stroke: 1px rgb(255, 145, 0);
+  color: transparent;
+  display: flex;
+  align-items: center;
+}
+.class-con h1::after {
+  content: "";
+  height: 1px;
+  width: 150px;
+  background-color: rgb(255, 145, 0);
+  display: inline-block;
+}
 
 /*product section*/
 .product {
@@ -366,6 +391,10 @@ body {
   }
   .header-con div {
     font-size: 2.5rem;
+  }
+  .class-con h1 {
+    font-size: 3rem;
+    margin-left: 50px;
   }
   .product div {
     width: 250px;
